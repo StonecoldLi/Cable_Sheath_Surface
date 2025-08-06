@@ -1,0 +1,8 @@
+python .\frame_slicing\frame_slicing.py ../../data/B01/B01.mp4 --start 24.870 --out_dir ../../data/pics/B01
+
+python .\frame_slicing\frame_slicing.py ../../data/B01/L01.mp4 --start 30.480 --out_dir ../../data/pics/L01
+
+python .\frame_slicing\frame_slicing.py ../../data/B01/R01.mp4 --start 61.820 --out_dir ../../data/pics/R01
+
+python .\frame_slicing\frame_slicing.py ../../data/B01/T01.mp4 --start 55.130 --out_dir ../../data/pics/T01
+
