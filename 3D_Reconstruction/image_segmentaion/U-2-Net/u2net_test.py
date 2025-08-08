@@ -48,12 +48,12 @@ def save_output(image_name, pred, d_dir):
 
 def main():
     # --------- 1. Set model and directories ---------
-    model_name = 'u2net_finetune_iter800_loss0.8027'  # your trained model name
+    model_name = 'u2net'  # your trained model name
     
     # Directories
     image_dir = os.path.join(os.getcwd(), 'test_data', 'test_images')
     prediction_dir = os.path.join(os.getcwd(), 'test_data', model_name + '_results')
-    model_dir = os.path.join(os.getcwd(), 'saved_models', 'u2net1_finetune', model_name + '.pth')
+    model_dir = os.path.join(os.getcwd(), 'saved_models', 'u2net', model_name + '.pth')
 
     # Get the list of test images
     img_name_list = glob.glob(image_dir + os.sep + '*')
