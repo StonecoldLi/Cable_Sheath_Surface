@@ -1,1 +1,0 @@
-python src/infer_seg.py --ckpt ckpts/seg_edge_best.pth --img_dir data/images/test --out_dir out --size 1536 --th 0.5

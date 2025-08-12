@@ -1,0 +1,59 @@
+python src/infer_and_crop.py --ckpt ckpts/hed_best.pth --img data/images/test --out_dir out --th_high 0.55 --th_low 0.25 --edge_margin 12 --y_gap_max 80 --x_gap_max 70 --dmin 10 --dmax 180 --ang_tol 22 --alpha_len 0.7 --beta_int 0.3
+
+
+python src/fit_split_lines.py --nms_path out/s101_2_nms.png --save_vis out/sample_fit.png --save_txt out/sample_fit.txt --th 0.4 --min_cc 40 --nbr_k 2 --ransac_tol 2.5 --ransac_iter 800
+
+
+
+python src/show_selected_points.py --nms_path out/frame_000002_nms.png --save_path out/selected_points.png --low_th 0.6 --high_th 1.0 --point_color 0 0 255 --radius 1
+
+python src/clean_selected_points.py --selected_png out/selected_points.png --save_vis out/selected_points_clean_vis.png --save_mask out/selected_inliers_mask.png --min_r 120 --min_diff 60 --dens_radius 3 --dens_min_neighbors 3 --ransac_tol 2.5 --ransac_iter 800 --min_inliers_ratio 0.0005 --fit_two_lines
+
+python src/fit_two_lines.py --inlier_mask out/selected_inliers_mask.png --save_vis out/fit_lines.png --save_json out/fit_lines.json --bg out/selected_points.png --ransac_tol 3.0 --ransac_iter 1000
+
+
+
+
+python src/batch_infer.py --nms_dir ./out --out_lines ./out_lines --out_pics ./out_masks --low_th 0.4 --high_th 1.0 --edge_margin 5 --min_r 120 --min_diff 60 --dens_radius 3 --dens_min_neighbors 3 --ransac_tol_clean 2.5 --ransac_iter_clean 800 --ransac_tol_fit 3.0 --ransac_iter_fit 1000
+
+
+python src/keep_mask.py --img_dir ./data/images/test --mask_dir ./out_masks --out_dir ./crop_results --mask_suffix _between.png --alpha --tight_crop
+
+nms:
+【exp】
+python src/infer_nms.py --ckpt ckpts/hed_best.pth --img data/images/test --out_dir out
+【1】
+python src/infer_nms.py --ckpt ckpts/hed_best.pth --img data/pics_100/1 --out_dir out/100/1
+
+【2】
+python src/infer_nms.py --ckpt ckpts/hed_best.pth --img data/pics_100/2 --out_dir out/100/2
+
+【3】
+python src/infer_nms.py --ckpt ckpts/hed_best.pth --img data/pics_100/3 --out_dir out/100/3
+
+【4】
+python src/infer_nms.py --ckpt ckpts/hed_best.pth --img data/pics_100/4 --out_dir out/100/4
+
+masks:
+【exp】
+python src/batch_infer.py --nms_dir ./out --out_lines ./out_lines --out_pics ./out_masks --low_th 0.4 --high_th 1.0 --edge_margin 5 --min_r 120 --min_diff 60 --dens_radius 3 --dens_min_neighbors 3 --ransac_tol_clean 2.5 --ransac_iter_clean 800 --ransac_tol_fit 3.0 --ransac_iter_fit 1000
+【1】
+python src/batch_infer.py --nms_dir ./out/100/1 --out_lines ./out_lines/100/1 --out_pics ./out_masks/100/1 --low_th 0.6 --high_th 1.0 --edge_margin 5 --min_r 120 --min_diff 60 --dens_radius 3 --dens_min_neighbors 3 --ransac_tol_clean 2.5 --ransac_iter_clean 800 --ransac_tol_fit 3.0 --ransac_iter_fit 1000
+【2】
+python src/batch_infer.py --nms_dir ./out/100/2 --out_lines ./out_lines/100/2 --out_pics ./out_masks/100/2 --low_th 0.6 --high_th 1.0 --edge_margin 5 --min_r 120 --min_diff 60 --dens_radius 3 --dens_min_neighbors 3 --ransac_tol_clean 2.5 --ransac_iter_clean 800 --ransac_tol_fit 3.0 --ransac_iter_fit 1000
+【3】
+python src/batch_infer.py --nms_dir ./out/100/3 --out_lines ./out_lines/100/3 --out_pics ./out_masks/100/3 --low_th 0.6 --high_th 1.0 --edge_margin 5 --min_r 120 --min_diff 60 --dens_radius 3 --dens_min_neighbors 3 --ransac_tol_clean 2.5 --ransac_iter_clean 800 --ransac_tol_fit 3.0 --ransac_iter_fit 1000
+【4】
+python src/batch_infer.py --nms_dir ./out/100/4 --out_lines ./out_lines/100/4 --out_pics ./out_masks/100/4 --low_th 0.6 --high_th 1.0 --edge_margin 5 --min_r 120 --min_diff 60 --dens_radius 3 --dens_min_neighbors 3 --ransac_tol_clean 2.5 --ransac_iter_clean 800 --ransac_tol_fit 3.0 --ransac_iter_fit 1000
+
+crop:
+【exp】
+python src/keep_mask.py --img_dir ./data/images/test --mask_dir ./out_masks --out_dir ./crop_results --mask_suffix _between.png --alpha --tight_crop
+【1】
+python src/keep_mask.py --img_dir ./data/pics_100/1 --mask_dir ./out_masks/100/1 --out_dir ./crop_results/100/1 --mask_suffix _between.png --alpha --tight_crop
+【2】
+python src/keep_mask.py --img_dir ./data/pics_100/2 --mask_dir ./out_masks/100/2 --out_dir ./crop_results/100/2 --mask_suffix _between.png --alpha --tight_crop
+【3】
+python src/keep_mask.py --img_dir ./data/pics_100/3 --mask_dir ./out_masks/100/3 --out_dir ./crop_results/100/3 --mask_suffix _between.png --alpha --tight_crop
+【4】
+python src/keep_mask.py --img_dir ./data/pics_100/4 --mask_dir ./out_masks/100/4 --out_dir ./crop_results/100/4 --mask_suffix _between.png --alpha --tight_crop

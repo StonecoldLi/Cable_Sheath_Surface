@@ -1,0 +1,4 @@
+python src/train_seg_edge.py --img_dir data/images/train --mask_dir data/masks/train --save_dir ckpts --epochs 2 --bs 2 --img_size 896
+
+
+python src/infer_seg.py --ckpt ckpts/seg_edge_best.pth --img_dir data/images/test --out_dir out --size 1536 --th 0.5
