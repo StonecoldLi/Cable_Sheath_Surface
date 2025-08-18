@@ -1,0 +1,30 @@
+[
+  {
+    "name": "cam0",
+    "img": "data/ring1/cam0.png",
+    "mask": "data/ring1/cam0_mask.png",
+    "fg":   "data/ring1/cam0_fg.png",
+    "theta_deg": 0.0
+  },
+  {
+    "name": "cam90",
+    "img": "data/ring1/cam90.png",
+    "mask": "data/ring1/cam90_mask.png",
+    "fg":   "data/ring1/cam90_fg.png",
+    "theta_deg": 90.0
+  },
+  {
+    "name": "cam180",
+    "img": "data/ring1/cam180.png",
+    "mask": "data/ring1/cam180_mask.png",
+    "fg":   "data/ring1/cam180_fg.png",
+    "theta_deg": 180.0
+  },
+  {
+    "name": "cam270",
+    "img": "data/ring1/cam270.png",
+    "mask": "data/ring1/cam270_mask.png",
+    "fg":   "data/ring1/cam270_fg.png",
+    "theta_deg": 270.0
+  }
+]

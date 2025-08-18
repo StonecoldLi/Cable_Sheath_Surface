@@ -1,0 +1,15 @@
+python stitch_cylindrical_route.py --config config/ring1_cameras.json --outdir out/ring1 --save-warped
+
+# 
+python stitch_cylindrical_route.py --config config/ring1_cameras.json --outdir out/ring1 --fov-h-deg 73.74 --orig-width 1920 --theta-blend-deg 6 --save-warped
+
+#
+python stitch_cylindrical_route.py --config config/ring1_cameras.json --outdir out/ring1 --fov-h-deg 73.74 --orig-width 1920 --theta-map stretch-subject --theta-blend-deg 8 --edge-soft-deg 2 --save-warped
+
+#step1:
+python data_cropping.py --indir ./data/ring1
+
+#step2:
+python data_cylin_stitching_feathered.py --indir ./out_step1 --feather linear --theta1 0.1 --theta2 0.1 --theta3 0.1 --outdir ./out_step2
+
+python data_cylin_stitching.py --indir ./out_step1 --theta1 0.05 --theta2 0.20 --theta3 0.20 --outdir ./out_step2
