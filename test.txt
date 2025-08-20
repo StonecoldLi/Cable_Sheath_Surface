@@ -1,0 +1,1 @@
+git rm -r --cached $(git ls-files '*.jpg') $(git ls-files '*.JPG') $(git ls-files '*.png') $(git ls-files '*.PNG') $(git ls-files '*.pth') $(git ls-files '*.PTH')

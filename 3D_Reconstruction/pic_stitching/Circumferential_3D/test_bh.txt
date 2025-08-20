@@ -4,4 +4,11 @@ python cylinder_3D.py --cam cam0 data/cam0.png data/cam0_mask.png 0 --cam cam90 
 73.74
 
 v2:
-python cylinder_3D_v2.py --cam cam0 data/cam0.png data/cam0_mask.png 0 --cam cam90 data/cam90.png data/cam90_mask.png 90 --cam cam180 data/cam180.png data/cam180_mask.png 180 --cam cam270 data/cam270.png data/cam270_mask.png 270 --fov-h-deg 73.74 --tex-w 2048 --tex-h 1024 --cyl-radius 1.0 --cyl-height 2.0 --cam-radius 2.5 --gamma 2.0 --blend softmax --softmax-tau 0.25 --sector-deg 110 --sector-feather-deg 6 --flip-side outside --final-mirror --outdir out_cy_3D_v2
+python cylinder_3D_v2.py --cam cam0 data/cam0.png data/cam0_mask.png 0 --cam cam90 data/cam90.png data/cam90_mask.png 90 --cam cam180 data/cam180.png data/cam180_mask.png 180 --cam cam270 data/cam270.png data/cam270_mask.png 270 --fov-h-deg 75 --tex-w 2048 --tex-h 1024 --cyl-radius 0.8 --cyl-height 2.0 --cam-radius 2.5 --gamma 2.0 --blend softmax --softmax-tau 0.25 --sector-deg 100 --sector-feather-deg 6 --flip-side outside --final-mirror --outdir out_cy_3D_v2
+
+--blend max:
+python cylinder_3D_v2.py --cam cam0 data/cam0.png data/cam0_mask.png 0 --cam cam90 data/cam90.png data/cam90_mask.png 90 --cam cam180 data/cam180.png data/cam180_mask.png 180 --cam cam270 data/cam270.png data/cam270_mask.png 270 --fov-h-deg 90 --tex-w 2048 --tex-h 1024 --cyl-radius 1.0 --cyl-height 2.0 --cam-radius 2.5 --gamma 2.5 --blend max --sector-deg 100 --sector-feather-deg 6 --flip-side outside --final-mirror --outdir out_cy_3D_v2_hard
+
+
+
+--cyl-radius:真实的拉吊索半径

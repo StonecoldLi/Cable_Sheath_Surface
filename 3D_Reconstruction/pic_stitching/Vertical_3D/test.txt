@@ -1,0 +1,8 @@
+# 情况 A：把 12mm 当作 35mm 等效焦距
+python param_extract.py --img1 data/images/0001.png --img2 data/images/0002.png --mask1 data/masks/0001_mask.png --mask2 data/masks/0002_mask.png --f-mode equivalent --f-mm 12 --radius-mm 150 --standoff-mm 50 --fps 100 --speed-mm-s 1000 --out-dir ./out
+
+
+# 方式 A：单位用像素（没有纵向标定时）
+python 3D_vertical.py --img1 data/images/0001.png --img2 data/images/0002.png --mask1 data/masks/0001_mask.png --mask2 data/masks/0002_mask.png --result-json out/pair_0001_0002/result.json --radius 150 --out-dir ./out_obj --name model_px
+
+python 3D_vertical.py --img1 data/images/0001.png --img2 data/images/0002.png --mask1 data/masks/0001_mask.png --mask2 data/masks/0002_mask.png --result-json out/pair_0001_0002/result.json --radius-mm 200 --f-mode equivalent --f-mm 12 --sensor-w-mm 7.6 --theta-cols 4096 --mm-per-px 0.3 --out-dir ./out_stitch --name cyl_z_lower_covers

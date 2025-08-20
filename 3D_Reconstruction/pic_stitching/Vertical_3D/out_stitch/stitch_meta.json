@@ -1,0 +1,32 @@
+{
+  "rule": "Lower patch covers upper patch in overlap (Z-direction overwrite).",
+  "dtheta_rad": 0.00042745539698163526,
+  "dtheta_deg": 0.02449139017713685,
+  "dz_px": 93.9388427734375,
+  "theta_global": {
+    "min": -0.5435729787228172,
+    "max": 0.5821203184521906,
+    "rad_per_col": 0.00027482746513061713,
+    "Wglob": 4096
+  },
+  "z_global_px": {
+    "min": 0,
+    "max": 1174,
+    "Hglob": 1174
+  },
+  "mm_per_px": 0.3,
+  "fx_pixels": 640.0,
+  "cx_used": 1081.75,
+  "inputs": {
+    "img1": "data/images/0001.png",
+    "img2": "data/images/0002.png",
+    "mask1": "data/masks/0001_mask.png",
+    "mask2": "data/masks/0002_mask.png",
+    "result_json": "out/pair_0001_0002/result.json"
+  },
+  "outputs": {
+    "obj": "out_stitch\\cyl_z_lower_covers.obj",
+    "mtl": "out_stitch\\cyl_z_lower_covers.mtl",
+    "texture": "out_stitch\\texture.png"
+  }
+}

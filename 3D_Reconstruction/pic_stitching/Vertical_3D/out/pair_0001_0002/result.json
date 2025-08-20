@@ -1,0 +1,62 @@
+{
+  "image1": "data/images/0001.png",
+  "image2": "data/images/0002.png",
+  "mask1": "data/masks/0001_mask.png",
+  "mask2": "data/masks/0002_mask.png",
+  "W": 1920,
+  "H": 1080,
+  "fx_pixels": 640.0,
+  "fy_pixels": 540.0,
+  "principal_point": {
+    "cx_used": 1081.75,
+    "cy_used": 540.0
+  },
+  "cx_estimates": {
+    "img1": 1081.0,
+    "img2": 1082.5,
+    "used": 1081.75
+  },
+  "detector": {
+    "img1": "SIFT",
+    "img2": "SIFT"
+  },
+  "matches": {
+    "num_raw": 70,
+    "num_inliers_pixel_model": 15,
+    "inlier_ratio_pixel_model": 0.21428571428571427,
+    "mad_theta_deg_pixel_model": 0.0572306463740825,
+    "mad_z_px_pixel_model": 2.496063232422875
+  },
+  "ransac_pixel_model": {
+    "dtheta_rad": 0.00042745539698163526,
+    "dtheta_deg": 0.02449139017713685,
+    "dz_px": 93.9388427734375,
+    "dz_mm": null,
+    "thr_theta_rad": 0.02,
+    "thr_z_px": 6.0
+  },
+  "phase_corr_check": {
+    "resp": -0.019274657440406306,
+    "dtheta_rad": -0.000339294036946116,
+    "dtheta_deg": -0.01944011633096827,
+    "dz_px": -0.11567701643775763
+  },
+  "unwrap": {
+    "theta_min": -0.5435729787228172,
+    "theta_max": 0.5821203184521906,
+    "rad_per_pix": 0.0005496549302612343
+  },
+  "config": {
+    "f_mode": "equivalent",
+    "f_mm": 12.0,
+    "sensor_w_mm": 7.6,
+    "sensor_h_mm": 5.7,
+    "theta_cols": 2048,
+    "midband_fraction": 0.5,
+    "grid_nx": 8,
+    "grid_ny": 6,
+    "per_cell": 15,
+    "edge_margin": 6,
+    "ratio": 0.75
+  }
+}
